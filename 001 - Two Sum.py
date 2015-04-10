@@ -10,4 +10,6 @@ class Solution:
 if __name__ == '__main__':
     import Test
 
-    Test.test((1, 2), Solution().twoSum((2, 7, 11, 15), 9))
+    Test.test(Solution().twoSum, [
+        (((2, 7, 11, 15), 9), (1, 2)),
+    ])

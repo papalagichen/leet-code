@@ -23,13 +23,15 @@ class Solution:
 if __name__ == '__main__':
     import Test
 
-    Test.test(123, Solution().atoi('123'))
-    Test.test(123, Solution().atoi('0123'))
-    Test.test(123, Solution().atoi('+123'))
-    Test.test(-123, Solution().atoi('-123'))
-    Test.test(-12, Solution().atoi('   -0012a42'))
-    Test.test(123, Solution().atoi('  123  '))
-    Test.test(0, Solution().atoi(''))
-    Test.test(123, Solution().atoi('  123  123'))
-    Test.test(2147483647, Solution().atoi('123123123123123123123123'))
-    Test.test(-2147483648, Solution().atoi('-123123123123123123123123'))
+    Test.test(Solution().atoi, [
+        ('123', 123),
+        ('0123', 123),
+        ('+123', 123),
+        ('-123', -123),
+        ('   -0012a42', -12),
+        ('  123  ', 123),
+        ('', 0),
+        ('  123  123', 123),
+        ('123123123123123123123123', 2147483647),
+        ('-123123123123123123123123', -2147483648),
+    ])
