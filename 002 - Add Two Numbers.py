@@ -1,8 +1,4 @@
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from ListBuilder import ListNode, build
 
 
 class Solution:
@@ -32,14 +28,8 @@ class Solution:
 
 
 if __name__ == '__main__':
-    l1 = ListNode(2)
-    l1.next = ListNode(4)
-    l1.next.next = ListNode(3)
-    l2 = ListNode(5)
-    l2.next = ListNode(6)
-    l2.next.next = ListNode(4)
-    node = Solution().addTwoNumbers(l1, l2)
-    while node is not None:
+    node = Solution().addTwoNumbers(build(2, 4, 3), build(5, 6, 4))
+    while node:
         print node.val,
         if node.next is not None:
             print ' -> ',

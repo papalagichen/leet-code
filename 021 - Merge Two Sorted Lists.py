@@ -1,7 +1,4 @@
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from ListBuilder import ListNode, build
 
 
 class Solution:
@@ -20,24 +17,14 @@ class Solution:
 
 
 if __name__ == '__main__':
-    l1 = ListNode(1)
-    l1.next = ListNode(3)
-    l1.next.next = ListNode(5)
-    l2 = ListNode(2)
-    l2.next = ListNode(4)
-    l2.next.next = ListNode(6)
-    l2.next.next.next = ListNode(8)
-    node = Solution().mergeTwoLists(l1, l2)
+    node = Solution().mergeTwoLists(build((1, 3, 5)), build((2, 4, 6, 8)))
     while node:
         print(node.val)
         node = node.next
 
     print
 
-    l1 = ListNode(1)
-    l1.next = ListNode(3)
-    l1.next.next = ListNode(5)
-    node = Solution().mergeTwoLists(l1, None)
+    node = Solution().mergeTwoLists(build((1, 3, 5)), None)
     while node:
         print(node.val)
         node = node.next
