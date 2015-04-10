@@ -1,3 +1,6 @@
+MAX = 1 << 31
+
+
 class Solution:
     def reverse(self, x):
         negative = x < 0
@@ -7,7 +10,7 @@ class Solution:
             y *= 10
             y += x % 10
             x /= 10
-        if y > 2 ** 31:
+        if y > MAX:
             return 0
         return y * -1 if negative else y
 
@@ -16,7 +19,7 @@ class Solution2:
     def reverse(self, x):
         negative = x < 0
         x = int(str(abs(x))[::-1])
-        if x > 2 ** 31:
+        if x > MAX:
             return 0
         return x * -1 if negative else x
 
