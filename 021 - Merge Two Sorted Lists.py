@@ -17,18 +17,6 @@ class Solution:
 
 
 if __name__ == '__main__':
-    node = Solution().mergeTwoLists(build((1, 3, 5)), build((2, 4, 6, 8)))
-    while node:
-        print(node.val)
-        node = node.next
-
-    print
-
-    node = Solution().mergeTwoLists(build((1, 3, 5)), None)
-    while node:
-        print(node.val)
-        node = node.next
-
-    print
-
-    print Solution().mergeTwoLists(None, None)
+    print([1, 2, 3, 4, 5, 6, 8] == Solution().mergeTwoLists(build(1, 3, 5), build(2, 4, 6, 8)).to_list())
+    print([1, 3, 5] == Solution().mergeTwoLists(build(1, 3, 5), None).to_list())
+    print(None == Solution().mergeTwoLists(None, None))

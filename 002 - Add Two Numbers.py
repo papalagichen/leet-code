@@ -28,9 +28,4 @@ class Solution:
 
 
 if __name__ == '__main__':
-    node = Solution().addTwoNumbers(build(2, 4, 3), build(5, 6, 4))
-    while node:
-        print node.val,
-        if node.next is not None:
-            print ' -> ',
-        node = node.next
+    print([7, 0, 8] == Solution().addTwoNumbers(build(2, 4, 3), build(5, 6, 4)).to_list())
