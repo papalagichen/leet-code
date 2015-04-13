@@ -28,4 +28,8 @@ class Solution:
 
 
 if __name__ == '__main__':
-    print([7, 0, 8] == Solution().addTwoNumbers(build(2, 4, 3), build(5, 6, 4)).to_list())
+    import Test
+
+    Test.test(Solution().addTwoNumbers, [
+        ((build(2, 4, 3), build(5, 6, 4)), build(7, 0, 8)),
+    ])

@@ -13,13 +13,8 @@ class ListNode:
             p = p.next
         return s
 
-    def to_list(self):
-        l = []
-        p = self
-        while p:
-            l.append(p.val)
-            p = p.next
-        return l
+    def __cmp__(self, other):
+        return cmp(str(self), str(other))
 
 
 def build(*a):

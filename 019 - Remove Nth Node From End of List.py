@@ -28,14 +28,12 @@ class Solution2:
 
 
 if __name__ == '__main__':
-    print([1, 2, 3, 5] == Solution().removeNthFromEnd(build(1, 2, 3, 4, 5), 2).to_list())
-    print([1, 2, 3, 4] == Solution().removeNthFromEnd(build(1, 2, 3, 4, 5), 1).to_list())
-    print([2, 3, 4, 5] == Solution().removeNthFromEnd(build(1, 2, 3, 4, 5), 5).to_list())
-    print([1] == Solution().removeNthFromEnd(build(1, 2), 1).to_list())
-    print(None == Solution().removeNthFromEnd(build(1), 1))
+    import Test
 
-    print([1, 2, 3, 5] == Solution2().removeNthFromEnd(build(1, 2, 3, 4, 5), 2).to_list())
-    print([1, 2, 3, 4] == Solution2().removeNthFromEnd(build(1, 2, 3, 4, 5), 1).to_list())
-    print([2, 3, 4, 5] == Solution2().removeNthFromEnd(build(1, 2, 3, 4, 5), 5).to_list())
-    print([1] == Solution2().removeNthFromEnd(build(1, 2), 1).to_list())
-    print(None == Solution2().removeNthFromEnd(build(1), 1))
+    Test.test((Solution().removeNthFromEnd, Solution2().removeNthFromEnd), [
+        ((build(1, 2, 3, 4, 5), 2), build(1, 2, 3, 5)),
+        ((build(1, 2, 3, 4, 5), 1), build(1, 2, 3, 4)),
+        ((build(1, 2, 3, 4, 5), 5), build(2, 3, 4, 5)),
+        ((build(1, 2), 1), build(1)),
+        ((build(1), 1), None),
+    ])

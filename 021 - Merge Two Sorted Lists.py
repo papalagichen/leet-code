@@ -17,6 +17,10 @@ class Solution:
 
 
 if __name__ == '__main__':
-    print([1, 2, 3, 4, 5, 6, 8] == Solution().mergeTwoLists(build(1, 3, 5), build(2, 4, 6, 8)).to_list())
-    print([1, 3, 5] == Solution().mergeTwoLists(build(1, 3, 5), None).to_list())
-    print(None == Solution().mergeTwoLists(None, None))
+    import Test
+
+    Test.test(Solution().mergeTwoLists, [
+        ((build(1, 3, 5), build(2, 4, 6, 8)), build(1, 2, 3, 4, 5, 6, 8)),
+        ((build(1, 3, 5), None), build(1, 3, 5)),
+        ((None, None), None)
+    ])
