@@ -27,7 +27,7 @@ class Solution2:
 if __name__ == '__main__':
     import Test
 
-    Test.test(Solution2().reverse, [
+    Test.test((Solution().reverse, Solution2().reverse), [
         (0, 0),
         (123, 321),
         (-123, -321),

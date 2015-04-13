@@ -38,23 +38,7 @@ class Solution3:
 if __name__ == '__main__':
     import Test
 
-    Test.test(Solution().longestCommonPrefix, [
-        ((), ''),
-        (('1234', '123'), '123'),
-        (('1234', '123', '123456', '0', ''), ''),
-        (('12345', '123', '123456'), '123'),
-        (('12345', '124', '123456'), '12'),
-        (('124', '12345', '123456'), '12'),
-    ])
-    Test.test(Solution2().longestCommonPrefix, [
-        ((), ''),
-        (('1234', '123'), '123'),
-        (('1234', '123', '123456', '0', ''), ''),
-        (('12345', '123', '123456'), '123'),
-        (('12345', '124', '123456'), '12'),
-        (('124', '12345', '123456'), '12'),
-    ])
-    Test.test(Solution3().longestCommonPrefix, [
+    Test.test((Solution().longestCommonPrefix, Solution2().longestCommonPrefix, Solution3().longestCommonPrefix), [
         ((), ''),
         (('1234', '123'), '123'),
         (('1234', '123', '123456', '0', ''), ''),

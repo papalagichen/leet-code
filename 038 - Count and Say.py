@@ -52,23 +52,7 @@ class Solution3:
 if __name__ == '__main__':
     import Test
 
-    Test.test(Solution().countAndSay, [
-        (1, '1'),
-        (2, '11'),
-        (3, '21'),
-        (4, '1211'),
-        (5, '111221'),
-        (6, '312211'),
-    ])
-    Test.test(Solution2().countAndSay, [
-        (1, '1'),
-        (2, '11'),
-        (3, '21'),
-        (4, '1211'),
-        (5, '111221'),
-        (6, '312211'),
-    ])
-    Test.test(Solution3().countAndSay, [
+    Test.test((Solution().countAndSay, Solution2().countAndSay, Solution3().countAndSay), [
         (1, '1'),
         (2, '11'),
         (3, '21'),

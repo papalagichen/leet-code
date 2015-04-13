@@ -33,27 +33,7 @@ class Solution2:
 if __name__ == '__main__':
     import Test
 
-    Test.test(Solution().isSameTree, [
-        ((build({1: [{2: [{4: None},
-                          {5: None}]},
-                     {3: [None,
-                          {6: None}]}]}),
-          build({1: [{2: [{4: None},
-                          {5: None}]},
-                     {3: [None,
-                          {6: None}]}]})),
-         True),
-        ((build({1: [{2: [{4: None},
-                          {5: None}]},
-                     {3: [None,
-                          {6: None}]}]}),
-          build({1: [{2: [{4: None},
-                          {5: None}]},
-                     {3: [{6: None},
-                          None]}]})),
-         False),
-    ])
-    Test.test(Solution2().isSameTree, [
+    Test.test((Solution().isSameTree, Solution2().isSameTree), [
         ((build({1: [{2: [{4: None},
                           {5: None}]},
                      {3: [None,
