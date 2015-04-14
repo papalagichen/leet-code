@@ -1,6 +1,3 @@
-from TreeBuilder import build
-
-
 class Solution:
     def isSameTree(self, p, q):
         return self.breadth_first_traversal(p) == self.breadth_first_traversal(q)
@@ -31,6 +28,7 @@ class Solution2:
 
 
 if __name__ == '__main__':
+    from TreeBuilder import build
     import Test
 
     Test.test((Solution().isSameTree, Solution2().isSameTree), [

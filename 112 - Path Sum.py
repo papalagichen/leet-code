@@ -1,6 +1,3 @@
-from TreeBuilder import TreeNode, build
-
-
 class Solution:
     def hasPathSum(self, root, s):
         if root is None:
@@ -30,6 +27,7 @@ class Solution2:
 
 
 if __name__ == '__main__':
+    from TreeBuilder import TreeNode, build
     import Test
 
     tree = build({5: [{4: [{11: [{7: None},

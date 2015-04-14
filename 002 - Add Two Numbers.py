@@ -1,4 +1,4 @@
-from ListBuilder import ListNode, build
+from ListBuilder import ListNode
 
 
 class Solution:
@@ -28,6 +28,7 @@ class Solution:
 
 
 if __name__ == '__main__':
+    from ListBuilder import ListNode, build
     import Test
 
     Test.test(Solution().addTwoNumbers, [

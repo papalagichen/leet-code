@@ -1,4 +1,4 @@
-from ListBuilder import ListNode, build
+from ListBuilder import ListNode
 
 
 class Solution:
@@ -28,6 +28,7 @@ class Solution2:
 
 
 if __name__ == '__main__':
+    from ListBuilder import build
     import Test
 
     Test.test((Solution().removeNthFromEnd, Solution2().removeNthFromEnd), [

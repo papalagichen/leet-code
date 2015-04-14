@@ -1,6 +1,3 @@
-from TreeBuilder import build
-
-
 class Solution:
     def minDepth(self, root):
         if root is None:
@@ -29,6 +26,7 @@ class Solution2:
 
 
 if __name__ == '__main__':
+    from TreeBuilder import build
     import Test
 
     Test.test((Solution().minDepth, Solution2().minDepth), [
