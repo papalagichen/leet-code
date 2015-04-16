@@ -11,7 +11,7 @@ def test(funcs, args_expects, copy_parameters=True):
         for args, expect in args_expects:
             if copy_parameters:
                 args = copy.deepcopy(args)
-            if type(args) in (list, tuple) and len(args) == len(inspect.getargspec(func).args) - 1:
+            if type(args) in (list, tuple) and len(args) > 1 and len(args) == len(inspect.getargspec(func).args) - 1:
                 result = func(*args)
             else:
                 result = func(args)
