@@ -5,10 +5,13 @@ class TreeNode:
         self.right = None
 
     def __str__(self):
-        return preorder_traversal(self)
+        return ','.join(str(x.val) for x in preorder_traversal(self))
+
+    def __eq__(self, other):
+        return self.val == other.val
 
     def __cmp__(self, other):
-        return cmp(str(self), str(other))
+        return self.val == other.val
 
 
 def build(nodes):
@@ -23,13 +26,13 @@ def build(nodes):
 
 
 def breadth_first_traversal(tree_node):
-    s = ''
+    s = []
     if tree_node is None:
         return s
     queue = [tree_node]
     while len(queue) > 0:
         n = queue.pop(0)
-        s += str(n.val)
+        s.append(n)
         if n.left:
             queue.append(n.left)
         if n.right:
@@ -37,14 +40,14 @@ def breadth_first_traversal(tree_node):
     return s
 
 
-def preorder_traversal(tree_node, left_to_right=True):
-    s = ''
+def preorder_traversal(tree_node):
+    s = []
     if tree_node is None:
         return s
     stack = [tree_node]
     while len(stack) > 0:
         n = stack.pop()
-        s += str(n.val)
+        s.append(n)
         if n.right:
             stack.append(n.right)
         if n.left:
@@ -52,8 +55,8 @@ def preorder_traversal(tree_node, left_to_right=True):
     return s
 
 
-def inorder_traversal(tree_node, left_to_right=True):
-    s = ''
+def inorder_traversal(tree_node):
+    s = []
     if tree_node:
         stack = [tree_node]
         while len(stack) > 0:
@@ -64,14 +67,14 @@ def inorder_traversal(tree_node, left_to_right=True):
                     stack.append(n)
             n = stack.pop()
             n.done = True
-            s += str(n.val)
+            s.append(n)
             if n.right:
                 stack.append(n.right)
     return s
 
 
-def postorder_traversal(tree_node, left_to_right=True):
-    s = ''
+def postorder_traversal(tree_node):
+    s = []
     if tree_node:
         stack = [tree_node]
         while len(stack) > 0:
@@ -83,7 +86,7 @@ def postorder_traversal(tree_node, left_to_right=True):
             else:
                 n = stack.pop()
                 n.done = True
-                s += str(n.val)
+                s.append(n)
     return s
 
 
@@ -96,14 +99,14 @@ if __name__ == '__main__':
                            {6: None}]}]})
 
     Test.test(breadth_first_traversal, [
-        (tree, '123456'),
+        (tree, [TreeNode(1), TreeNode(2), TreeNode(3), TreeNode(4), TreeNode(5), TreeNode(6)]),
     ])
     Test.test(preorder_traversal, [
-        (tree, '124536'),
+        (tree, [TreeNode(1), TreeNode(2), TreeNode(4), TreeNode(5), TreeNode(3), TreeNode(6)]),
     ])
     Test.test(inorder_traversal, [
-        (tree, '425136')
+        (tree, [TreeNode(4), TreeNode(2), TreeNode(5), TreeNode(1), TreeNode(3), TreeNode(6)])
     ])
     Test.test(postorder_traversal, [
-        (tree, '452631'),
+        (tree, [TreeNode(4), TreeNode(5), TreeNode(2), TreeNode(6), TreeNode(3), TreeNode(1)]),
     ])
