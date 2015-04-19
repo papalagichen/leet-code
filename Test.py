@@ -13,8 +13,10 @@ def test(funcs, args_expects, copy_parameters=True):
                 args = copy.deepcopy(args)
             if type(args) in (list, tuple) and len(args) > 1 and len(args) == len(inspect.getargspec(func).args) - 1:
                 result = func(*args)
-            else:
+            elif args:
                 result = func(args)
+            else:
+                result = func()
             if expect != result:
                 correct = False
                 print("When calling {} with input '{}', '{}' is expected but got '{}'".format(func, args, expect, result))
