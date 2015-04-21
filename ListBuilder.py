@@ -4,15 +4,6 @@ class ListNode:
         self.next = None
 
     def __str__(self):
-        return self.to_string()
-
-    def __cmp__(self, other):
-        return cmp(self.to_string(), other.to_string())
-
-    def __eq__(self, other):
-        return self.val == other.val
-
-    def to_string(self):
         s = ''
         p = self
         while p:
@@ -21,6 +12,12 @@ class ListNode:
                 s += ' -> '
             p = p.next
         return s
+
+    def __eq__(self, other):
+        return other and str(self) == str(other)
+
+    def __ne__(self, other):
+        return other and str(self) != str(other)
 
     def index(self, n=1):
         p = self
@@ -47,5 +44,4 @@ if __name__ == '__main__':
     list2 = build(1, 2, 3, 4, 5)
     list3 = build(2, 3, 4, 5, 6)
 
-    Test.cmp_equal(list1, list2)
-    Test.equal(ListNode(3), list1.index(2))
+    Test.equal(list1.next.next, list1.index(2))

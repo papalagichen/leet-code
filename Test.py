@@ -30,10 +30,3 @@ def equal(expect, given):
         print('OK!')
     else:
         print("Expect: '{}' Given: '{}'".format(expect, given))
-
-
-def cmp_equal(expect, given):
-    if cmp(expect, given):
-        print("Expect: '{}' Given: '{}'".format(expect, given))
-    else:
-        print('OK!')
