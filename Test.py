@@ -1,6 +1,7 @@
 import collections
 import copy
 import inspect
+import types
 
 
 def test(funcs, args_expects, copy_parameters=True):
@@ -17,6 +18,8 @@ def test(funcs, args_expects, copy_parameters=True):
                 result = func()
             else:
                 result = func(args)
+            if isinstance(result, types.GeneratorType):
+                result = list(result)
             if expect != result:
                 correct = False
                 print("When calling {} with input '{}', '{}' is expected but got '{}'".format(
