@@ -1,6 +1,3 @@
-from ListBuilder import ListNode
-
-
 class Solution:
     def convertToInt(self, node):
         i = 0
