@@ -5,10 +5,10 @@ import types
 
 
 def test(funcs, args_expects, copy_parameters=True):
-    correct = True
     if not isinstance(funcs, collections.Iterable):
         funcs = [funcs]
     for func in funcs:
+        correct = True
         for args, expect in args_expects:
             if copy_parameters:
                 args = copy.deepcopy(args)
@@ -25,9 +25,16 @@ def test(funcs, args_expects, copy_parameters=True):
             if expect != result:
                 correct = False
                 print("When calling {} with input '{}', '{}' is expected but got '{}'".format(
-                    func, args, expect, result))
-    if correct:
-        print('OK!')
+                    func_name(func), args, expect, result))
+        if correct:
+            print(func_name(func) + ' OK!')
+
+
+def func_name(func):
+    if hasattr(func, 'im_class'):
+        return func.im_class.__name__ + '.' + func.__name__
+    else:
+        return func.__name__
 
 
 def equal(expect, given):
