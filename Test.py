@@ -12,7 +12,9 @@ def test(funcs, args_expects, copy_parameters=True):
         for args, expect in args_expects:
             if copy_parameters:
                 args = copy.deepcopy(args)
-            if type(args) in (list, tuple) and len(args) > 1 and len(args) == len(inspect.getargspec(func).args) - 1:
+            spec_args = inspect.getargspec(func).args
+            spec_args_count = len(spec_args) - (1 if len(spec_args) > 0 and spec_args[0] == 'self' else 0)
+            if type(args) in (list, tuple) and len(args) > 1 and len(args) == spec_args_count:
                 result = func(*args)
             elif args is None and len(inspect.getargspec(func).args) == 1:
                 result = func()
