@@ -1,6 +1,3 @@
-from TreeBuilder import build
-
-
 class Solution:
     def isSymmetric(self, root):
         if root is None:
@@ -32,6 +29,7 @@ class Solution2:
 
 if __name__ == '__main__':
     import Test
+    from TreeBuilder import build
 
     Test.test((Solution().isSymmetric, Solution2().isSymmetric), [
         (None, True),
