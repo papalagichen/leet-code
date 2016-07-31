@@ -3,7 +3,7 @@ class Solution:
         s = []
         if root:
             stack = [root]
-            while len(stack) > 0:
+            while stack:
                 n = stack[-1]
                 if n.left and not hasattr(n.left, 'done'):
                     stack.append(n.left)
@@ -22,7 +22,7 @@ class Solution2:
         if root:
             stack = [root]
             done_stack = []
-            while len(stack) > 0:
+            while stack:
                 n = stack[-1]
                 if n.left and n.left not in done_stack:
                     stack.append(n.left)
