@@ -7,9 +7,19 @@ class Solution:
         return nums[-1]
 
 
+# https://discuss.leetcode.com/topic/22821/an-general-way-to-handle-all-this-sort-of-questions/2
+class Solution2:
+    def singleNumber(self, nums):
+        a, b = 0, 0
+        for i in xrange(len(nums)):
+            a = (a ^ nums[i]) & ~b
+            b = (b ^ nums[i]) & ~a
+        return a
+
+
 if __name__ == '__main__':
     import Test
 
-    Test.test(Solution().singleNumber, [
+    Test.test((Solution().singleNumber, Solution2().singleNumber), [
         ([1, 1, 1, 2, 2, 2, 3, 5, 3, 3, 4, 4, 4], 5),
     ])
