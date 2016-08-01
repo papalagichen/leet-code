@@ -7,6 +7,12 @@ class Solution:
         return nums[-1]
 
 
+class Solution2:
+    def singleNumber(self, nums):
+        import operator
+        return reduce(operator.xor, nums)
+
+
 if __name__ == '__main__':
     import Test
     import random
@@ -20,7 +26,7 @@ if __name__ == '__main__':
     nums3 = [1, 0, 1]
     random.shuffle(nums3)
 
-    Test.test(Solution().singleNumber, [
+    Test.test((Solution().singleNumber, Solution2().singleNumber), [
         (nums, 6),
         (nums2, 3),
         (nums3, 0),
