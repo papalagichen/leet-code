@@ -1,24 +1,40 @@
 class Solution(object):
     def thirdMax(self, nums):
-        len_nums = len(nums)
-        max_numbers = nums[0:1]
-        for n in nums[1:]:
-            m = min(3, len(max_numbers), len_nums)
-            for i in range(m):
-                if n == max_numbers[i]:
-                    break
-                elif n > max_numbers[i]:
-                    max_numbers.insert(i, n)
-                    break
-                elif i == m - 1 and len(max_numbers) < 3:
-                    max_numbers.append(n)
-        return max_numbers[2] if len(max_numbers) > 2 else max_numbers[0]
+        maxs = [float('-inf'), float('-inf'), float('-inf')]
+        for n in nums:
+            if n not in maxs:
+                if n > maxs[0]:
+                    maxs = [n, maxs[0], maxs[1]]
+                elif n > maxs[1]:
+                    maxs = [maxs[0], n, maxs[1]]
+                elif n > maxs[2]:
+                    maxs = [maxs[0], maxs[1], n]
+        return maxs[0] if float('-inf') == maxs[2] else maxs[2]
+
+
+class Solution2(object):
+    def thirdMax(self, nums):
+        nums = set(nums)
+        if len(nums) < 3:
+            return max(nums)
+        nums.remove(max(nums))
+        nums.remove(max(nums))
+        return max(nums)
 
 
 if __name__ == '__main__':
     import Test
 
     Test.test(Solution().thirdMax, [
+        ([3, 2, 1], 1),
+        ([1, 2], 2),
+        ([2, 2, 3, 1], 1),
+        ([2, 2, 2, 2], 2),
+        ([2, 2, 2, 1], 2),
+        ([5, 2, 2], 5),
+        ([1, 2, 2], 2),
+    ])
+    Test.test(Solution2().thirdMax, [
         ([3, 2, 1], 1),
         ([1, 2], 2),
         ([2, 2, 3, 1], 1),
