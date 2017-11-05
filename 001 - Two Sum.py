@@ -7,6 +7,7 @@ class Solution:
             rest = target - n
             mem[rest] = i
 
+
 if __name__ == '__main__':
     import Test
 
