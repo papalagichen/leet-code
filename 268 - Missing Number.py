@@ -4,11 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        length = len(nums)
-        total = (1 + length) * length / 2
-        for n in nums:
-            total -= n
-        return total
+        return (1 + len(nums)) * len(nums) / 2 - sum(nums)
 
 
 if __name__ == '__main__':
