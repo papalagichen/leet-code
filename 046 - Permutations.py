@@ -7,7 +7,7 @@ class Solution:
         self.p(nums, 0, results)
         return results
 
-    def p(self, nums, left, results):
+    def p(self, nums: List[int], left: int, results: List[List[int]]):
         if left == len(nums) - 1:
             results.append(nums.copy())
         else:

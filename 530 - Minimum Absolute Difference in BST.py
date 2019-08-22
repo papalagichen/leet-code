@@ -12,7 +12,7 @@ class Solution:
     def getMinimumDifference(self, root: TreeNode) -> int:
         return self.traverse(root, root, sys.maxsize)[1]
 
-    def traverse(self, node, prev_node, min_diff):
+    def traverse(self, node: TreeNode, prev_node: TreeNode, min_diff: int):
         if node.left:
             prev_node, min_diff = self.traverse(node.left, prev_node, min_diff)
 
