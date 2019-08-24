@@ -16,7 +16,12 @@ class Solution:
         return count + single
 
 
-print(Solution().longestPalindrome('abccccdd'))
-print(Solution().longestPalindrome('ccc'))
-print(Solution().longestPalindrome('cc'))
-print(Solution().longestPalindrome('c'))
+if __name__ == '__main__':
+    import Test
+
+    Test.test(Solution().longestPalindrome, [
+        ('abccccdd', 7),
+        ('ccc', 3),
+        ('cc', 2),
+        ('c', 1),
+    ])
