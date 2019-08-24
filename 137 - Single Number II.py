@@ -1,7 +1,7 @@
 class Solution:
     def singleNumber(self, nums):
         nums.sort()
-        for i in xrange(0, len(nums) - 1, 3):
+        for i in range(0, len(nums) - 1, 3):
             if nums[i] != nums[i + 1]:
                 return nums[i]
         return nums[-1]
@@ -11,7 +11,7 @@ class Solution:
 class Solution2:
     def singleNumber(self, nums):
         a, b = 0, 0
-        for i in xrange(len(nums)):
+        for i in range(len(nums)):
             a = (a ^ nums[i]) & ~b
             b = (b ^ nums[i]) & ~a
         return a

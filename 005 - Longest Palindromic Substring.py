@@ -20,8 +20,8 @@ class Solution:
 
 class Solution2:
     def longestPalindrome(self, s):
-        for length in xrange(len(s), 0, -1):
-            for start in xrange(0, len(s) - length + 1):
+        for length in range(len(s), 0, -1):
+            for start in range(0, len(s) - length + 1):
                 ss = s[start:start + length]
                 if ss == ss[::-1]:
                     return s[start:start + length]

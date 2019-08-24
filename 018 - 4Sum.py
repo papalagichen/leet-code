@@ -7,8 +7,8 @@ class Solution(object):
 
         nums.sort()
 
-        for i in xrange(0, len(nums) - 3):
-            for j in xrange(i + 1, len(nums) - 2):
+        for i in range(0, len(nums) - 3):
+            for j in range(i + 1, len(nums) - 2):
                 start = j + 1
                 end = len(nums) - 1
                 while start < end:

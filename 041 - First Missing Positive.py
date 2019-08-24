@@ -15,11 +15,11 @@ class Solution(object):
 
 class Solution2(object):
     def firstMissingPositive(self, nums):
-        for i in xrange(len(nums)):
+        for i in range(len(nums)):
             while 0 < nums[i] <= len(nums) and nums[i] != nums[nums[i] - 1]:
                 a, b = i, nums[i] - 1
                 nums[a], nums[b] = nums[b], nums[a]
-        for i in xrange(len(nums)):
+        for i in range(len(nums)):
             if nums[i] != i + 1:
                 return i + 1
         return len(nums) + 1

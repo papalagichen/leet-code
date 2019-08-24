@@ -4,7 +4,7 @@ class Solution(object):
         if len(tokens) != len(pattern):
             return False
         d = {}
-        for i in xrange(len(pattern)):
+        for i in range(len(pattern)):
             if pattern[i] in d and d[pattern[i]] != tokens[i] or tokens[i] in d.values() and pattern[i] not in d:
                 return False
             d[pattern[i]] = tokens[i]
