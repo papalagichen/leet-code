@@ -31,13 +31,7 @@ class Solution2(object):
 if __name__ == '__main__':
     import Test
 
-    Test.test(Solution().countSegments, [
-        ("", 0),
-        ("Hello, my name is John", 5),
-        ("Hello, my name   is    John", 5),
-    ])
-
-    Test.test(Solution2().countSegments, [
+    Test.test((Solution().countSegments, Solution2().countSegments), [
         ("", 0),
         ("Hello, my name is John", 5),
         ("Hello, my name   is    John", 5),
