@@ -50,9 +50,8 @@ class Solution3:
     def traverse(self, node, prev_node, min_diff):
         if node.left:
             prev_node, min_diff = self.traverse(node.left, prev_node, min_diff)
-        diff = abs(prev_node.val - node.val)
-        if 0 < diff < min_diff:
-            min_diff = diff
+        if prev_node is not node:
+            min_diff = min(min_diff, abs(prev_node.val - node.val))
         prev_node = node
         if node.right:
             prev_node, min_diff = self.traverse(node.right, prev_node, min_diff)
