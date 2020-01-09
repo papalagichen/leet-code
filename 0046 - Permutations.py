@@ -15,3 +15,18 @@ class Solution:
                 nums[left], nums[i] = nums[i], nums[left]
                 self.p(nums, left + 1, results)
                 nums[left], nums[i] = nums[i], nums[left]
+
+
+if __name__ == '__main__':
+    import Test
+
+    Test.test(Solution().permute, [
+        ([1, 2, 3], [
+            [1, 2, 3],
+            [1, 3, 2],
+            [2, 1, 3],
+            [2, 3, 1],
+            [3, 2, 1],
+            [3, 1, 2],
+        ]),
+    ])
