@@ -15,14 +15,16 @@ class Solution(object):
         return ''.join(result)
 
 
+# Two pointers. Time: O(n). Space: O(1)
 class Solution2(object):
     def reverseVowels(self, s):
+        vowels = set('aeiou')
         cs = list(s)
         i, j = 0, len(cs) - 1
         while i < j:
-            while i < j and cs[i].lower() not in 'aeiou':
+            while i < j and cs[i].lower() not in vowels:
                 i += 1
-            while i < j and cs[j].lower() not in 'aeiou':
+            while i < j and cs[j].lower() not in vowels:
                 j -= 1
             cs[i], cs[j] = cs[j], cs[i]
             i, j = i + 1, j - 1
