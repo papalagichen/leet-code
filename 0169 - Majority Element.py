@@ -14,7 +14,7 @@ class Solution:
 
 class Solution2:
     def majorityElement(self, nums):
-        return sorted(nums)[(len(nums) / 2)]
+        return sorted(nums)[(len(nums) // 2)]
 
 
 if __name__ == '__main__':
