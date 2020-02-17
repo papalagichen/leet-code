@@ -1,17 +1,18 @@
+from ListBuilder import ListNode
+
+
 class Solution:
-    def reverseList(self, head):
-        p, c = None, head
-        while c:
-            n, c.next = c.next, p
-            p, c = c, n
-        return p
+    def reverseList(self, head: ListNode) -> ListNode:
+        prev, current = None, head
+        while current:
+            current.next, current, prev = prev, current.next, current
+        return prev
 
 
 if __name__ == '__main__':
     import Test
-    from ListBuilder import build
+    import ListBuilder
 
     Test.test(Solution().reverseList, [
-        (None, None),
-        (build(1, 2, 3, 4, 5), build(5, 4, 3, 2, 1))
+        (ListBuilder.deserialize('[1,2,3,4,5]'), ListBuilder.deserialize('[5,4,3,2,1]'))
     ])
