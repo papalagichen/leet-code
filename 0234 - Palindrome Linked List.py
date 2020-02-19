@@ -1,35 +1,50 @@
-class Solution(object):
-    def isPalindrome(self, head):
-        if head is None or head.next is None:
-            return True
-        if head.next.next is None:
-            return head.val == head.next.val
-        # find the middle
-        slow, fast = head, head.next
-        while fast.next and fast.next.next:
-            slow = slow.next
-            fast = fast.next.next
-        if fast.next:
-            fast = fast.next
-            slow.next, slow = None, slow.next.next
-        else:
-            slow.next, slow = None, slow.next
-        # reverse second half part
-        p, p.next, slow, n = slow, None, slow.next, slow.next.next if slow.next else None
-        while slow:
-            p, slow.next, slow, n = slow, p, n, n.next if n else None
-        while head and fast:
-            if head.val != fast.val:
+from ListBuilder import ListNode
+
+
+# Copy to extra list and then two pointers. Time: O(n). Space: O(n)
+class Solution:
+    def isPalindrome(self, head: ListNode) -> bool:
+        values = []
+        while head:
+            values.append(head.val)
+            head = head.next
+        start, end = 0, len(values) - 1
+        while start < end:
+            if values[start] != values[end]:
                 return False
-            head, fast = head.next, fast.next
-        return head is None and fast is None
+            start += 1
+            end -= 1
+        return True
+
+
+# Reverse second half in-place. Time: O(n). Space: O(1)
+class Solution2:
+    def isPalindrome(self, head: ListNode) -> bool:
+        if head is None:
+            return True
+        # find the middle
+        fast = slow = head
+        while fast and fast.next:
+            fast, slow = fast.next.next, slow.next
+        # reverse the second half
+        temp, slow = slow, slow.next
+        if fast is None:
+            temp.next = None
+        while slow:
+            temp, slow.next, slow = slow, temp, slow.next
+        # check palindrome
+        while head and temp and head is not temp:
+            if head.val != temp.val:
+                return False
+            head, temp = head.next, temp.next
+        return True
 
 
 if __name__ == '__main__':
     import Test
     import ListBuilder
 
-    Test.test(Solution().isPalindrome, [
+    Test.test([Solution().isPalindrome, Solution2().isPalindrome], [
         (None, True),
         (ListBuilder.build(1), True),
         (ListBuilder.build(1, 1), True),
