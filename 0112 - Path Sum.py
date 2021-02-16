@@ -21,23 +21,19 @@ class Solution2:
     def hasPathSum(self, root, s):
         if root is None:
             return False
-        if root.left or root.right:
-            return self.hasPathSum(root.left, s - root.val) or self.hasPathSum(root.right, s - root.val)
-        return root.val == s
+        if root.val == s and root.left is None and root.right is None:
+            return True
+        return self.hasPathSum(root.left, s - root.val) or self.hasPathSum(root.right, s - root.val)
 
 
 if __name__ == '__main__':
-    from TreeBuilder import TreeNode, build
     import Test
+    from TreeBuilder import deserialize
+    from TreeBuilder import TreeNode
 
-    tree = build({5: [{4: [{11: [{7: None},
-                                 {2: None}]},
-                           None]},
-                      {8: [{13: None},
-                           {4: [None,
-                                {1: None}]}]}]})
+    tree = deserialize('[5,4,8,11,null,13,4,7,2,null,null,null,1]')
 
-    Test.test((Solution().hasPathSum, Solution2().hasPathSum), [
+    Test.test([Solution().hasPathSum, Solution2().hasPathSum], [
         ((None, 0), False),
         ((tree, 22), True),
         ((tree, 26), True),
