@@ -1,3 +1,4 @@
+from functools import lru_cache
 from typing import List
 
 """
@@ -45,10 +46,22 @@ class Solution4:
         ][N]
 
 
+# Dynamic programming with lru_cache. Time: O(n). Space: O(n)
+class Solution5:
+    def fib(self, N: int) -> int:
+        return self.helper(N)
+
+    @lru_cache()
+    def helper(self, N: int) -> int:
+        if N < 2:
+            return N
+        return self.fib(N - 1) + self.fib(N - 2)
+
+
 if __name__ == '__main__':
     import Test
 
-    Test.test([Solution().fib, Solution2().fib, Solution3().fib, Solution4().fib], [
+    Test.test([Solution().fib, Solution2().fib, Solution3().fib, Solution4().fib, Solution5().fib], [
         (0, 0),
         (1, 1),
         (2, 1),
